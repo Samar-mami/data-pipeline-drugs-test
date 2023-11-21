@@ -11,7 +11,7 @@ parameters_file = 'parameters.txt'
 params = read_parameters_file(parameters_file)
 
 # Access individual parameters
-date_formats = params.get('DATE_FORMAT', [])
+date_formats = params.get('DATE_FORMATS', [])
 desired_format = params.get('DESIRED_FORMAT', '')
 
 # Modify date format to get the same data format for all dataframes
@@ -19,3 +19,10 @@ df_clinical_trials['date'] = df_clinical_trials['date'].apply(
     lambda x: parse_and_reformat(x, date_formats=date_formats, desired_format=desired_format))
 df_pubmed['date'] = df_pubmed['date'].apply(
     lambda x: parse_and_reformat(x, date_formats=date_formats, desired_format=desired_format))
+
+fill_na_df(df_clinical_trials)
+fill_na_df(df_pubmed)
+fill_na_df(df_drugs)
+drop_duplicates_df(df_clinical_trials)
+drop_duplicates_df(df_pubmed)
+drop_duplicates_df(df_drugs)

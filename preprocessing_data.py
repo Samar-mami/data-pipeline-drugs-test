@@ -9,8 +9,7 @@ def parse_and_reformat(date_str, date_formats, desired_format):
                 parsed_date = pd.to_datetime(date_str, format=fmt)
                 # Reformat the parsed date to the desired format
                 parsed_date.strftime(desired_format)
-                print('Date has been reformatted !')
-                #return reformatted_date
+                # return reformatted_date
             except ValueError:
                 pass
         # If none of the formats match, return None
@@ -23,12 +22,14 @@ def parse_and_reformat(date_str, date_formats, desired_format):
 # fillna
 def fill_na_df(df):
     df.fillna('')
+    print('Null values have been replaced with an empty string !')
 
 
 # drop duplicates if exists
 def drop_duplicates_df(df):
     if df.duplicated().any():
         df.drop_duplicates(inplace=True)
+        print('Duplicates have been removed !')
 
 
 # lower all the colums in the dataframe
