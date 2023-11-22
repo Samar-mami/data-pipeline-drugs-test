@@ -50,3 +50,7 @@ def clean_df(df, column):
         print("Dataframe is cleaned !")
     except Exception as e:
         print(f"An exception occured: {e}")
+
+
+def rename_columns(df, column, new_column):
+    df.rename(columns={f'{column}': new_column}, inplace=True)
