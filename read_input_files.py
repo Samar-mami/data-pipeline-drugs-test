@@ -4,7 +4,7 @@ import pandas as pd
 def read_csv_file(path, header, sep):
     try:
         df = pd.read_csv(path, header=header, sep=sep)
-        print('csv file read successfully !')
+        print(f'{path}', ' file read successfully !')
         print(df.head())
         return df
     except FileNotFoundError:

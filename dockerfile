@@ -1,25 +1,27 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8
+FROM python:3.12
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /data
-COPY requirements.txt requirements.txt
+# Copy the Pipfiles to the working directory
+COPY Pipfile Pipfile.lock /app/
 
-# Install any needed packages specified in requirements.txt
-RUN apt-get update
-#RUN pip install -r requirements.txt
-COPY Pipfile ./Pipfile
-COPY Pipfile.lock ./Pipfile.lock
+# Install pipenv
 RUN pip install pipenv
-RUN pipenv install --ignore-pipfile --system
-# Make port 80 available to the world outside this container
+
+# Install dependencies
+RUN pipenv install --ignore-pipfile --deploy --system --python $(which python3)
+RUN pipenv install pandas
+
+# Copy the rest of the application files
+COPY . /app
+
+# Set environment variables
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+# Expose port 80
 EXPOSE 80
 
-# Define environment variable
-#ENV NAME World
-
-# Run app.py when the container launches
-CMD ["python", "main.py"]
+# Set the command to run your application
+CMD ["pipenv", "run", "python", "drug_analyzer.py"]

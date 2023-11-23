@@ -63,9 +63,8 @@ def preprocess_df(df):
     params = read_parameters_file(parameters_file)
     # Access individual parameters
     date_formats = params.get('DATE_FORMATS', [])
-    print(date_formats)
     desired_format = params.get('DESIRED_FORMAT', '')
-    print(desired_format)
+
     # Modify date format to get the same data format for all dataframes
     if 'date' in df.columns:
         print("Formatting date...")

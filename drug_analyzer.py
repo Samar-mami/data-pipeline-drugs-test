@@ -3,6 +3,11 @@ from preprocessing_data import *
 from processing_data import *
 
 
+def get_file_path(parameters_file):
+    params = read_parameters_file(parameters_file)
+    return params.get('FILE_PATH', '')
+
+
 def main():
     """
         entry point to run the drug analyzer app.
@@ -31,11 +36,12 @@ def main():
 
     json_result = convert_df_to_json(final_result)
     # pretty_json = json.dumps(json_result)
-
+    print("Here's the final result in json format... !")
     print(json_result)
     # Specify the file path where you want to store the JSON file
-    file_path = "drug_analyzer.json"
-
+    file_path = get_file_path('parameters.txt')
+    # Now you can use the 'file_path' variable in your code
+    print("file have been stored to:", file_path)
     # Write the JSON string to a file
     with open(file_path, "w") as json_file:
         json_file.write(json_result)
