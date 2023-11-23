@@ -14,10 +14,11 @@ The python project is constructed like the following:
   - clinical_trials.csv
   - drugs.csv
   - pubmed.csv
-  
+
+- **read input files** (_read_input_files.py_): read the csv files into a pandas dataframe
 - **Preprocessing step**  (_preprocessing_data.py_): cleans the data (null values, duplicates, date format, lower characters, ... )
 - **Processing step** (_processing_data.py_): contains functions to search for the different drugs in the different pubmed and clinical trials and generates a json file as output.
- 
+- **main file**: (_drug_analyzer.py_): the main file that runs all the previous steps
 - **Dockerfile:** generates the first docker image "sma/drug_analyzer:v1"
 
 - **Parameters file** (_Parameters.txt_): contains three parameters that you may change/update:
