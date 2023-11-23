@@ -46,6 +46,7 @@ def main():
     with open(file_path, "w") as json_file:
         json_file.write(json_result)
 
+    max_journal(file_path)
 
 if __name__ == '__main__':
     main()
