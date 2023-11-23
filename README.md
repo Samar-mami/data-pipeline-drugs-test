@@ -1,5 +1,5 @@
 # data-pipeline-drugs-test
-Construire une data pipeline permettant de traiter les données définies afin de générer un json avec le résultat attendu.
+Build a data pipeline to search for different drugs into the different clinical trials and pubmed in order to get which drug is mentioned in which trial, when, which journal ...
 
 ## Installation
 
