@@ -19,7 +19,7 @@ The python project is constructed like the following:
 - **Preprocessing step**  (_preprocessing_data.py_): cleans the data (null values, duplicates, date format, lower characters, ... )
 - **Processing step** (_processing_data.py_): contains functions to search for the different drugs in the different pubmed and clinical trials and generates a json file as output.
 - **main file**: (_drug_analyzer.py_): the main file that runs all the previous steps
-- **Dockerfile:** generates the first docker image "sma/drug_analyzer:v1"
+- **Dockerfile:** generates the first docker image "sma/drug_analyzer:v1" 
 
 - **Parameters file** (_Parameters.txt_): contains three parameters that you may change/update:
   - DATE_FORMATS: the different date_formats that you want to change in the files
